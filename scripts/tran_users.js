@@ -27,8 +27,11 @@ let CreateBackupPromise = function() {
 /* Questions */
 async function Start() {
     const MySQLRoot = await askQuestion("Whats your MySQL/MariaDB root password?> ");
-    const Creadits = await askQuestion("How many Credits should the moved users get?> ");
-    const ServerLimit = await askQuestion("What should the Server Limit of the moved users be?> ");
+    if(MySQLRoot == "") {console.log("Please type your MYSQL Root Passwort!"), process.exit(2);}
+    let Creadits = await askQuestion("How many Credits should the moved users get?> ");
+    let ServerLimit = await askQuestion("What should the Server Limit of the moved users be?> ");
+    if(isNaN(Creadits) || Creadits === "") {Creadits = 0;}
+    if(isNaN(ServerLimit) || ServerLimit === "") {ServerLimit = 0;}
     const CreateBackup = await askQuestion("Should a backup be created? (y/n)> ");
 
     if (CreateBackup.toLowerCase() === "y") {  
