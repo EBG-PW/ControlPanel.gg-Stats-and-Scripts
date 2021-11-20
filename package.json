@@ -1,0 +1,22 @@
+{
+    "name": "ebg-controlpanel-monitor-and-scrips",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "lint": "eslint --fix src",
+        "transfer": "node scripts/tran_users.js"
+    },
+    "keywords": [],
+    "author": "BolverBlitz",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "mysql": "^2.18.1"
+    }
+}
