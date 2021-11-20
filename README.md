@@ -15,3 +15,4 @@ This script will ONLY work on instalation with DEFAULT database names:
 Pterodactyl: panel  
 Controlpanel: dashboard  
 If you want to use diffrent DB names, you have to modify the script.  
+![grafik](https://user-images.githubusercontent.com/35345288/142738167-358c14a8-02f1-43c4-b522-d1fa7c3d3dc9.png)
