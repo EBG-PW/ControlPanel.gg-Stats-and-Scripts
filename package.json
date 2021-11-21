@@ -17,6 +17,9 @@
     },
     "license": "AGPL-3.0",
     "dependencies": {
+        "dotenv": "^10.0.0",
+        "geoip-country": "^4.0.95",
+        "influxdb-v2": "^1.0.0",
         "mysql": "^2.18.1"
     }
 }
