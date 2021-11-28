@@ -1,17 +1,27 @@
 const geoip = require('geoip-country');
 const db = require('../lib/db/mysql');
+const pterostatus = require('../lib/pterostatus')
 const DBDelay = Number(process.env.CheckDelayInMS)/1000;
 
 let StatsCollector = function() {
 	return new Promise(function(resolve, reject) {
         const Promisees = [db.GetAllUsers(), db.GetAllServers(), db.GetAllProducts(), db.GetFailedJobsSinceLastCheck(DBDelay)];
+
+        if(process.env.PteroStatusURL) {
+            Promisees.push(pterostatus.GetPteroStatusData())
+        }
+        
         try {
             Promise.all(Promisees).then(function(values) {
                 const Users = values[0];
                 const Servers = values[1];
                 const Products = values[2];
                 const FailedJobs = values[3];
-
+                let PteroStatusData = {};
+                if(process.env.PteroStatusURL) {
+                    PteroStatusData = values[values.length-1];
+                }
+                
                 let [TotalCoins, TotalSuspendedUsers, TotalAllowedServers, TotalVerifiedUsers, TotalVerifiedDiscordUsers, TotalCPU, TotalRAM, TotalSWAP, TotalDisk, TotalAllocations, TotalDB, TotalServerCostMonthly, ServerSuspended] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 let UserCountrys = [];
                 let ServerProducts = [];
@@ -64,7 +74,7 @@ let StatsCollector = function() {
                     return acc[curr] ? ++acc[curr] : acc[curr] = 1, acc
                 }, {})
 
-                resolve({
+                let ExportStats = {
                     Users: {
                         TotalUsers: Users.length,
                         TotalCoins: TotalCoins,
@@ -93,7 +103,13 @@ let StatsCollector = function() {
                     Jobs: {
                         Failed: FailedJobs[0]['COUNT(*)'],
                     }
-                });
+                }
+                
+                if(process.env.PteroStatusURL) {
+                    ExportStats["PteroStatus"] = PteroStatusData;
+                }
+                
+                resolve(ExportStats);
             }).catch(function(err) {
                 console.log(err);
             });

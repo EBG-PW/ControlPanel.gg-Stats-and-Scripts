@@ -29,6 +29,8 @@ function gather_and_save_stats() {
             writeDatapoint(key, value);
         }
         console.log('Stats saved');
+    }).catch(function(error) {
+        console.log(error);
     });
 }
 gather_and_save_stats();
