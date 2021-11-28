@@ -1,6 +1,37 @@
 # ControlPanel.gg-Stats-and-Scripts
  Grafana Monitoring Script and general scrips
 
+# Stats
+Will push data to a Influx 2.0 DB so you can use it as grafana source.  
+
+## Setup on Ubuntu/Debian
+### Required
+- Influx DB
+- Grafana
+- NodeJS & PM2
+
+### Influx DB Setup
+```sh
+docker run -p 8086:8086 \
+-v influxdb2:/var/lib/influxdb2 \
+influxdb:2.0
+```
+
+### Grafana Setup
+```sh
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+```
+
+### NodeJS & PM2 Setup
+```sh
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt install nodejs -y
+npm i pm2 -g
+pm2 startup
+```
+
+
+
 # Scripts
 
 | Name  | Function | MySQL Root| Usage |
