@@ -4,6 +4,9 @@
 # Stats
 Will push data to a Influx 2.0 DB so you can use it as grafana source.  
 
+![grafik](https://user-images.githubusercontent.com/35345288/143792952-34173d4c-ad4b-4e54-8c2e-57d145c0ac89.png)
+
+
 ## Setup on Ubuntu/Debian
 ### Required
 - Influx DB
@@ -100,7 +103,7 @@ pm2 save
 To see if the software is running, you can use the command `pm2 monit` and look for 'ControlPanel.gg Stats'.   There you can see CPU / RAM usage, the current log, the restarts and other performance metrics.  
 
 # Add live usage data with Pterostatus
-1. Follow installation of [Pter-Status](https://github.com/BlueFox-Development/Ptero-Status)
+1. Follow installation of [Ptero-Status](https://github.com/BlueFox-Development/Ptero-Status)
 2. Write the url (localhost if installed localy) into the .env "PteroStatusURL"  
 3. Optional: If you setup Token auth (recommended) you have to write the token after PteroStatusToken=  
 4. Restart the software (pm2 restart "ControlPanel.gg Stats")  
