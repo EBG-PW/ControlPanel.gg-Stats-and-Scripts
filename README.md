@@ -43,13 +43,13 @@ pm2 startup
 ## Configuration
 
 ### Configuration Influx DB
-1. Go to <Server IP>:8086 in your Browser and click "Get Started".  
+1. Go to `Server IP:8086` in your Browser and click "Get Started".  
 2. Setup a username & password.  
 3. Setup your organisation and your first bukket. You´ll need that later!  
 4. Click on "Setup later" on the next Step.  
 
 ### Configuration Grafana
-1. Go to <Server IP>:3000 in your Browser and log in with Username/Password: admin/admin     
+1. Go to `Server IP:3000` in your Browser and log in with Username/Password: admin/admin     
 2. It will ask you to setup a new password.    
 3. Click on configuration and then datacources then add data source.  
 4. Select InfluxDB.
