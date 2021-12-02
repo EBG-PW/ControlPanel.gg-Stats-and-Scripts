@@ -39,9 +39,12 @@ let StatsCollector = function() {
                             TotalVerifiedDiscordUsers += 1;
                         }
 
-                        if(User.ip !== null){
+                        if(User.ip !== null && geoip.lookup(User.ip)){
                             UserCountrys.push(geoip.lookup(User.ip).country);
+                        }else{
+                           UserCountrys.push("Local");
                         }
+
                     }else{
                         TotalSuspendedUsers += 1;
                     }
