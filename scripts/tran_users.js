@@ -77,13 +77,13 @@ async function Start() {
         host: 'localhost',
         user: 'root',
         password: MySQLRoot,
-        database: 'dashboard',
+        database: 'controlpanel',
         charset : "utf8mb4"
     });
 
     const getAllPteroUsers = "SELECT name_first, email, password, root_admin, id  FROM panel.users;";
-    const getAllDashbordUsers = "SELECT email FROM dashboard.users;";
-    const writeAllPreoUsers = "REPLACE INTO dashboard.users (name, role, email, password, pterodactyl_id, credits, server_limit, suspended, updated_at, created_at) VALUES ?";
+    const getAllDashbordUsers = "SELECT email FROM controlpanel.users;";
+    const writeAllPreoUsers = "REPLACE INTO controlpanel.users (name, role, email, password, pterodactyl_id, credits, server_limit, suspended, updated_at, created_at) VALUES ?";
     let AlreadyUsers = [];
 
     panel_db.getConnection(function(err, Pconnection) {
