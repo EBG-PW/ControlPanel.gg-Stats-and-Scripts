@@ -138,7 +138,6 @@ async function Start() {
                         }
                     });
                     console.log(`[\x1b[32m[!]\x1b[0m]`,`All ${rows.length} users were moved or where moved already`);
-                    process.exit(2)
                 });
             });
         });
