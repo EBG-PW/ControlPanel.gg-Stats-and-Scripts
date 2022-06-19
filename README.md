@@ -79,7 +79,9 @@ DB_HOST=localhost
 DB_USER=dashboarduser
 DB_PASSWORD=mysecretpassword
 DB_DATABASE=dashboard
+
 CheckDelayInMS=10000
+ExcludeAdminCoins=true // If true, the admin coins will not be shown in the stats.
 
 Influx_Host=InfluxDB Ip
 Influx_Protocol=http
@@ -89,6 +91,9 @@ Influx_Token=The token that you put into grafana data source
 orga=YourOrga
 bucket=YourDefaultBucket
 host=Dashboard
+
+PteroStatusURL= //Pterostatus URL (with protocol and port, like http://myserver.com:8080)
+PteroStatusToken= //Barer Token for the Pterostatus API
 ```
 4. Install node modules and setup pm2
 ```sh
