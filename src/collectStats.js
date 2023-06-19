@@ -106,7 +106,7 @@ let StatsCollector = function () {
                     Countrys: UserCountrysObject,
                     Products: ServerProductsObject,
                     Jobs: {
-                        Failed: FailedJobs[0]['COUNT(*)'],
+                        Failed: (FailedJobs !== "None") ? FailedJobs[0]['COUNT(*)'] : 0,
                     }
                 }
 
