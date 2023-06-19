@@ -116,11 +116,7 @@ let StatsCollector = function () {
 
                 resolve(ExportStats);
             }).catch(function (err) {
-                if (err.response.status === 403) {
-                    console.log("PteroStatus API Key is invalid");
-                } else {
-                    console.log(err);
-                }
+                console.log(err);
             });
         } catch (error) {
             reject(error);
